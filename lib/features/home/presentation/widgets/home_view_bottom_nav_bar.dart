@@ -4,12 +4,15 @@ import 'package:mini_app_clean_arcticture/core/constants/assets.dart';
 import 'package:mini_app_clean_arcticture/core/constants/colors.dart';
 import 'package:mini_app_clean_arcticture/core/helper/spacer.dart';
 
+
+
 class HomeViewBottomNavBar extends StatelessWidget {
   const HomeViewBottomNavBar({
     super.key,
     required this.currentIndex,
     required this.onTap,
   });
+
   final int currentIndex;
   final Function(int) onTap;
 
@@ -25,7 +28,6 @@ class HomeViewBottomNavBar extends StatelessWidget {
         type: BottomNavigationBarType.shifting,
         selectedItemColor: Colors.white,
         backgroundColor: Colors.white,
-      
         items: [
           BottomNavigationBarItem(
             icon: _buildNavItem(
@@ -73,29 +75,34 @@ class HomeViewBottomNavBar extends StatelessWidget {
   }
 
   Widget _buildNavItem(String iconPath, String data, bool isSelected) {
-    return Container(
-      height: 38,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: isSelected ? AppColors.primaryColor : Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(iconPath),
-          horizontalSpace(4),
-          isSelected
-              ? Text(
+    return Flexible(  // أضف Flexible هنا
+      child: Container(
+        height: 40,
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.primaryColor : Colors.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min, 
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(iconPath),
+            if (isSelected) horizontalSpace(4), 
+            if (isSelected)
+              Flexible( 
+                child: Text(
                   data,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
-                )
-              : SizedBox.shrink(),
-        ],
+                  overflow: TextOverflow.ellipsis, 
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
