@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_app_clean_arcticture/core/constants/assets.dart';
 import 'package:mini_app_clean_arcticture/core/constants/colors.dart';
 import 'package:mini_app_clean_arcticture/core/constants/text_style.dart';
 import 'package:mini_app_clean_arcticture/core/helper/spacer.dart';
@@ -24,13 +25,27 @@ class CoversListView extends StatelessWidget {
   Widget _buildItem(int currentIndex) {
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(20),
-          child: Image.asset(
-            fit: BoxFit.cover,
-            width: 198,
-            height: 247,
-            HomeLocalDatasource.covers[currentIndex],
+        Container(
+          width: 198,
+          height: 247,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              image: AssetImage(HomeLocalDatasource.covers[currentIndex]),
+            ),
+          ),
+          child: Align(
+            alignment: Alignment.topRight,
+
+            child: Padding(
+              padding: const EdgeInsets.only(right: 23.0, top: 12),
+              child: Image.asset(
+                Assets.resourceImagesRateIcon,
+                fit: BoxFit.fill,
+                width: 41,
+                height: 18,
+              ),
+            ),
           ),
         ),
         verticalSpace(8),

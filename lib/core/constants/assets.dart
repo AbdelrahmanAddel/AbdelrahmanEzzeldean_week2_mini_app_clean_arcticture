@@ -18,6 +18,8 @@ class Assets {
 
   static const String resourceImagesEyesIcon = "assets/images/eyesIcon.svg";
 
+  static const String resourceImagesFilesAndFolderIcon = "assets/images/filesAndFolderIcon.png";
+
   static const String resourceImagesFireIcon = "assets/images/fireIcon.svg";
 
   static const String resourceImagesHandsClappingIcon = "assets/images/handsClappingIcon.svg";
@@ -38,9 +40,17 @@ class Assets {
 
   static const String resourceImagesPreviewIcon = "assets/images/previewIcon.svg";
 
+  static const String resourceImagesRateIcon = "assets/images/rateIcon.png";
+
+  static const String resourceImagesRocketBoy = "assets/images/rocketBoy.png";
+
   static const String resourceImagesSearchIcon = "assets/images/searchIcon.svg";
 
   static const String resourceImagesSettingsIcon = "assets/images/settingsIcon.svg";
+
+  static const String resourceImagesUpgradePlanLeftStar = "assets/images/upgradePlanLeftStar.png";
+
+  static const String resourceImagesUpgradePlanRightStar = "assets/images/upgradePlanRightStar.png";
 
   static const String resourceImagesWatchIcon = "assets/images/watchIcon.svg";
 }
